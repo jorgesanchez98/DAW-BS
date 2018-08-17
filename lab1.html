@@ -3,21 +3,23 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Laboratorio 1: Introducción a las aplicaciones web, HTML5 y ciclo de vida de los sistemas de información</title>
+		<link rel="stylesheet" type="text/css" href="lab1.css">
 	</head>
 	<body>
-		<header><h1>Mi página personal</h1></header>
-		<ul>
+		<header id="top"><h1>Mi página personal</h1></header>
+		<ol id="menu">
+			<li><a href="#top">Inicio</a></li>
 			<li><a href="#Hobby">Hobbies</a></li>
 			<li><a href="#Articles">Articles</a></li>
 			<li><a href="#Definiciones">Definiciones</a></li>
 			<li><a href="#Preguntas">Preguntas</a></li>
 			<li><a href="#Referencias">Referencias</a></li>
-		</ul>
+		</ol>
 		<h2 id="Hobby">Hobby 1: Tocar Guitarra</h2>
-		<img src="https://images.reverb.com/image/upload/s--TQuHp-T1--/a_exif,c_limit,e_unsharp_mask:80,f_auto,fl_progressive,g_south,h_620,q_90,w_620/v1428001991/hebonsuozxkg7ahioryl.jpg">
+		<img class="center" src="https://images.reverb.com/image/upload/s--TQuHp-T1--/a_exif,c_limit,e_unsharp_mask:80,f_auto,fl_progressive,g_south,h_620,q_90,w_620/v1428001991/hebonsuozxkg7ahioryl.jpg">
 	    <p>Mientras ha sido un tiempo desde que he practicado seriamente, De vez en cuando cuando tengo tiempo libre que no preferiría usar recargando mis energías de un exhaustante día, conecto mi guitarra que es casi tan vieja como yo, un <strong>Squier Stratocaster</strong>, y toco algunas canciones a lado de sus versiones originales para sentirme como John Frusciante</p>
 		<h2>Hobby 2: Ver Caricaturas</h2>
-		<img src="https://cdn.vox-cdn.com/thumbor/1kKyzwmocR6pu9ijSIl_l1XP0PY=/0x0:1280x720/1200x675/filters:focal(470x259:674x463)/cdn.vox-cdn.com/uploads/chorus_image/image/58089103/r_m_sauce.0.jpg" width="700">
+		<img class="center" src="https://cdn.vox-cdn.com/thumbor/1kKyzwmocR6pu9ijSIl_l1XP0PY=/0x0:1280x720/1200x675/filters:focal(470x259:674x463)/cdn.vox-cdn.com/uploads/chorus_image/image/58089103/r_m_sauce.0.jpg" width="700">
    		<p>No me refiero a Cartoon Network o Disney Channel, aunque no salgo del cuarto cuando mis primos ponen Adventure Time, pero me refiero a caricaturas orientadas a adultos como Archer, Big Mouth, Bojack Horseman, Family Guy, Rick and Morty o más recientemente Final Space, siempre estoy buscando un nuevo show para ver</p>
    		<hr>
    		<article>
@@ -26,7 +28,7 @@
    		</article>
    		<article>
    			<h2>My top 9 albums</h2>
-   			<table>
+   			<table  class="center">
    				<tr>
    					<td><img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/Foo_Fighters_-_There_Is_Nothing_Left_to_Lose.jpg/220px-Foo_Fighters_-_There_Is_Nothing_Left_to_Lose.jpg"></td>
    					<td><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/Radiohead.okcomputer.albumart.jpg/220px-Radiohead.okcomputer.albumart.jpg"></td>
@@ -111,6 +113,14 @@
    			<li>¿Cuál es el ciclo de vida de los sistemas de información?<br>Planificación, análisis, diseño, planificación, implementación, pruebas, instalación, uso y mantenimiento</li>
    			<li>Comunicación, requisitos del sistema, estudio de factibilidad, análisis del sistema, diseño de software, códigos, pruebas, integración, implementación, operaciones, mantenimiento y disposición<a href="#Referencias">[5]</a></li>
    		</ul>
+   		<hr>
+   			<h2 id="lab3">Preguntas Lab 3:</h2>
+   			<ul>
+   				<li>Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS?<br>No abusar de el pues puede causar que tu código sea dificil de mantener y actualizar</li>
+   				<li>Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?<br>Para evitar que el contenido se disuelva en el fondo y deje de ser legible</li>
+   				<li>Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?<br>Tener en cuenta la disponibilidad que tendra tu aplicación web en diferentes dispositivos, más si quieres que este optimizado para celulares y tabletas</li>
+   				<li>¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?<br>Porque reduce la cantidad de bits que tienen que llegar al usuario</li>
+   			</ul>
    		<hr>
    		<h1 id="Referencias">Referencias:</h1>
    		<p>[1]https://developer.mozilla.org/es/docs/Web/HTTP/Methods<br>[2]http://php.net/manual/en/intro-whatis.php<br>[3]https://www.tutorialspoint.com/jsp/jsp_overview.htm<br>[4]https://www.seguetech.com/ajax-technology/<br>[5]https://www.tutorialspoint.com/es/software_engineering/software_development_life_cycle.htm</p>
