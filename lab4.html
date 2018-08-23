@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Laboratorio 4: Fundamentos de JavaScript</title>
+</head>
+<body>
+	<button onclick="exponentesNum()">Exponentes</button>
+	<button onclick="randomSum()">Suma Random</button>
+	<button onclick="probarCont()">Contador</button>
+	<button onclick="probarProm()">Promedio</button>
+	<button onclick="probarInv()">Invertir</button>
+	<button onclick="showHour()">Alarma</button>
+
+
+
+	<table id="table1">
+		<tr>
+			<th>Original</th>
+			<th>Cuadrado</th>
+			<th>Cubo</th>
+		</tr>
+		<p id="pregunta2"> pregunta 2 </p>
+		<p id="pregunta3"> pregunta 3 </p>
+		<p id="pregunta4"> pregunta 4 </p>
+		<p id="pregunta5"> pregunta 5 </p>
+		<p id="libre"> ejercicio libre </p>
+	</table>
+	<script type="text/javascript">
+	function exponentesNum(){
+		var numero = prompt("ingresa numero ");
+		var table = document.getElementById("table1");
+		var i;
+		for (i=0; i<=numero;i++){
+			var row = table.insertRow(0);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+			cell1.innerHTML=i;
+			cell2.innerHTML=i*i;
+			cell3.innerHTML=i*i*i;
+		}
+	}
+	function randomSum(){
+		var x = Math.floor((Math.random()*100));
+		var y = Math.floor((Math.random()*100));
+		counter =+ setTimeout(timer, 1000);
+		var respuesta = prompt(x + "+" + y + "= ?");
+		clearTimeout(counter);
+		var res  = (respuesta==x+y) ? "correcto":"incorrecto";	
+		document.getElementById("pregunta2").innerHTML=res + " tardaste: " + counter + " segundos";
+	}
+	function timer() {
+		return 1;
+	}
+	function probarCont (){
+		var arreglo = [-1, 0, 1];
+		document.getElementById("pregunta3").innerHTML=contador(arreglo);
+	}
+	function contador(arreglo){
+		var c, negativos=0, ceros=0, positivos=0;
+		for (c=0; c<arreglo.length; c++){
+			if (arreglo[c]<0)
+				negativos++;
+			else if (arreglo[c]==0)
+				ceros++;
+			else 
+				positivos++;
+		}
+		return "negativos: " + negativos + " positivos: " + positivos + " ceros: " + ceros;	
+	}
+	function probarProm(){
+		var arreglo=[0,1,2,3,4,5,6,7,8,9,10];
+		document.getElementById("pregunta4").innerHTML=promedio(arreglo);
+	}
+	function promedio(arreglo){
+		var c, sum=0;
+		for (c=0;c<arreglo.length;c++){
+			sum+=arreglo[c];
+		}
+		return sum/arreglo.length;
+	}
+	function probarInv(){
+		var numero=123456789;
+		document.getElementById("pregunta5").innerHTML=invertirNum(numero);
+	}
+	function invertirNum(numero){
+		var length=Math.ceil(Math.log10(numero+1)), sum=0, c;
+		for (c=0;c<length;c++){
+			var addOn=Math.round((numero/10-Math.floor(numero/10))*10);
+			numero=Math.floor(numero/10);
+			sum=sum*10+addOn;
+		}
+		return sum;
+	}	
+	function Time(hour, minute, second){
+			this.hours=hour;
+			this.minutes=minute;
+			this.seconds=second;
+			this.toString=showTime;
+			this.alarm=compareTime;
+			this.hour=getHour;
+			this.minute=getMinute;
+			this.second=getSecond;
+		}
+	function showTime(){
+		return this.hours + ":" + this.minutes + ":" + this.seconds;
+	}
+
+	function getHour(){
+		return this.hours;
+	}
+
+	function getMinute(){
+		return this.minutes;
+	}
+	
+	function getSecond(){
+		return this.seconds;
+	}
+
+	function compareTime (thyme){
+		var day=new Date
+		return thyme.hour()==day.getHours()&&thyme.minute()==day.getMinutes();
+	}
+
+	function showHour(){
+		var checkTime = setInterval(alarma ,1000);
+	}
+
+	function alarma (){
+		var thyme=new Time(23, 58);
+		if(compareTime(thyme)==true)
+			alert("Wake up!");
+	}
+	</script>
+</body>
+</html>
