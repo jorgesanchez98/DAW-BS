@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta  name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab 5: Programación orientada a eventos</title>
+	<link rel="stylesheet" type="text/css" href="lab5.css">
+	</head>
+	<body>
+
+		<aside>
+			<img id="ad" src="../lab5/productos/ad1.gif" width="100%" onmouseover="">
+		</aside>		
+		<aside class="sticky">
+			<img  id="watermark" src="https://shadowmas.com/shadowmas.homedns.org/graph/php-gd-image-watermark/watermarks/Sample-trans.png" >
+		</aside>
+		<header>
+			<h1>Lab 5: Programación orientada a eventos</h1>
+		</header>
+
+	<button id="myBtn">Validate password</button>
+
+	<form>
+		<label for="mail">Introduce tu e-mail para conseguir un super descuento</label><br>
+		<input type="email" id="mail"><br>
+		<label for="choice">Nos recomendarías a un amigo?</label>
+		<input type="radio" name="choice" value="yes">Yes
+		<input type="radio" name="choice" value="no">No<br>
+		<input type="button" value="Recibe promoción!" onclick="showPromo()">
+	</form>
+
+	<div id="myModal" class="modal">
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <form>
+			<label for="password">Introduce Password</label><br>
+			<input type="password" id="password"><br>
+			<label for="reingresar">Reingresa Contraseña</label><br>
+			<input type="password" id="reingresar"><br>
+			<input type="button" value="Validate Password" id="checkPass" onclick="validatePassword(document.getElementById('password').value, document.getElementById('reingresar').value)" name="checkPass">
+		</form>
+	  </div>
+
+	</div>
+		
+		<a href="store.html"><img src="../lab5/productos/doggo.jpg" width="100%" height="400"></a>
+		<script>
+			var modal = document.getElementById('myModal');
+
+			var button = document.getElementById("myBtn");
+
+			var span = document.getElementsByClassName("close")[0];
+			
+			var ad = document.getElementById("ad");
+
+			button.onmouseover = function(){
+				button.style.fontSize = "large";
+			}
+
+			button.onmouseout = function(){
+				button.style.fontSize = "medium";
+			}
+
+			function validatePassword(string1, string2){
+				if (string1==string2)
+					alert("Contraseña validada");
+				else
+					alert("Contraseñas incorrecta!");
+			}
+
+			function showPromo(){
+				if (document.getElementById("mail").value=="")
+					alert("por favor introduce tu correo");
+				else
+					ad.style.display="block";
+			}
+
+			button.onclick = function() {
+			    modal.style.display = "block";
+			}
+
+			span.onclick = function() {
+			    modal.style.display = "none";
+			}
+
+			window.onclick = function(event) {
+			    if (event.target == modal) {
+			        modal.style.display = "none";
+			    }
+			}
+		</script>
+	</body>
+	</html>
