@@ -1,0 +1,63 @@
+Revisa el contenido de la tabla materiales y determina si existe alguna inconsistencia en el contenido de la tabla. ¿Cuál es? ¿A qué se de
+
+La clave que se supone que es su identificador único se repite
+
+¿Qué ocurrió? 
+
+Violation of PRIMARY KEY constraint 'llaveMateriales'. Cannot insert duplicate key in object,
+no me permitio ingresar el la fila con tupla con llave duplicada
+
+¿Qué información muestra esta consulta? 
+
+La información sobre la restricción como su nombre y tipo
+
+¿Qué sentencias utilizaste para definir las llaves primarias? 
+
+La misma pero con los datos de nombre de tabla, nombre de constraint y argumentos de PRIMARY KEY alterados
+
+¿Qué sentencias utilizaste para definir este constrait? 
+
+El mismo pero al final en los argumentos puse todas las columnas que deben de formar parte de la llave primaria
+
+¿Qué particularidad observas en los valores para clave, rfc y numero? 
+
+Que este material no existe en la tabla materiales
+
+¿Cómo responde el sistema a la inserción de este registro? 
+
+Lo permite sin nínguna restricción
+
+¿Qué significa el mensaje que emite el sistema? 
+
+No permitio que se ingresara esa tupla al sistema por conflicto con otra base de datos
+
+¿Qué significado tiene la sentencia anterior? 
+
+Asigno una clave foranea a la tabla entregas
+
+sp_helpconstraint tableName 
+¿Qué significan las columnas de esas consultas?
+
+Los datos sobre las acciones que se deben de tomar sobre estas llaves, sus nombres y las columnas que las conforman, además avisán
+si están siendo referenciadas por alguna llave de otra tabla
+
+¿Qué uso se le está dando a GETDATE()? 
+
+Inserta la fecha actual
+
+¿Tiene sentido el valor del campo de cantidad? 
+
+No, es 0
+
+¿Cómo responde el sistema? 
+
+The INSERT statement conflicted with the CHECK constraint "cantidad". No permite la inserción
+
+¿Qué significa el mensaje? 
+
+Que la cantidad de lo que se intenta insertar es menor que 0
+
+Integridad Referencial
+
+Significa que las llaves externas que existan en una tabla deben de existar en la tabla en la cual esta referenciada, garantizando la integridad de los datos
+
