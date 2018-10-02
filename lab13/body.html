@@ -1,0 +1,68 @@
+  <div class="row">
+    <div class="col s12 ">
+      <div class="card-panel grey lighten-5 z-depth-1">
+        <div class="row valign-wrapper">
+          <div class="col s2">
+            <a href="controllaUpload.php"><i>add</i></a>
+              <?php if (isset($_SESSION["imagen"])): ?>
+                <img src="<?=$_SESSION["imagen"]?>" alt="Foto perfil">
+              <?php else: ?>
+                <img src="images/austinPowers.jpg" class="circle responsive-img">
+              <?php endif; ?>
+          </div>
+          <div class="col s10">
+            <span class="black-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed feugiat turpis. Donec ut velit rhoncus, molestie orci eu, eleifend quam. Vivamus eget placerat nisi, at efficitur mauris. Curabitur congue quis tellus in pellentesque. Aliquam sed urna finibus orci congue efficitur. Fusce vulputate, odio at convallis tempor, nibh nisl scelerisque risus, in venenatis dolor quam et ex. Pellentesque efficitur feugiat tortor at vulputate. 
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="row">
+
+<div class="col s4">
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/bolillo.jpg">
+    </div>
+    <div class="card-content"> 
+      <span class="card-title activator grey-text text-darken-4">Product 1<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Your product here<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+</div>
+
+<div class="col s4">
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/concha.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Product 2<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Your product here<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+</div>
+
+<div class="col s4">
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/oreja.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Product 3<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Your product here<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+ </div> 
+</div>
+</main>
