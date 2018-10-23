@@ -1,0 +1,41 @@
+¿Qué hace el primer bloque del código (bloque del IF)? 
+	Checa si el procedimiento con nombre 'crearMaterial' y type 'P, y de ser así hacerle DROP
+
+¿Para qué sirve la instrucción GO? 
+	Para ejecutar todo el código desde ese punto hasta el GO anterior o el principio del código
+
+¿Explica que recibe como parámetro este Procedimiento y qué tabla modifica?
+	Un valor numérico para la clave
+	un valor VARCHAR para la descripcion
+	un valor numérico para el costo
+	un valor numérico para el impuesto
+	La tabla materiales
+
+IF EXISTS (SELECT name FROM sysobjects
+                       WHERE name = 'modificaMaterial' AND type = 'P')
+                DROP PROCEDURE modificaMaterial
+            GO
+
+            CREATE PROCEDURE modificaMaterial
+                @columna VARCHAR(50),                
+				@viejo VARCHAR(50),
+                @nuevo VARCHAR(50)
+				
+            AS
+				UPDATE Materiales
+				SET @columna = @nuevo
+				WHERE @columna = @viejo
+            GO
+
+IF EXISTS (SELECT name FROM sysobjects
+                       WHERE name = 'borrarMaterial' AND type = 'P')
+                DROP PROCEDURE borrarMaterial
+            GO
+
+            CREATE PROCEDURE borrarMaterial
+                @llave numeric (5)          
+            AS
+				DELETE FROM Materiales
+				WHERE Clave = @llave 
+            GO
+
