@@ -1,0 +1,8 @@
+CREATE TABLE zombies (
+    idZombie INTEGER NOT NULL AUTO_INCREMENT,
+    nombre varchar(64) NOT NULL,
+    estado varchar(32) NOT NULL,
+    PRIMARY KEY (idZombie)
+)
+
+ALTER TABLE `zombies` ADD `fecha` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `estado`;
