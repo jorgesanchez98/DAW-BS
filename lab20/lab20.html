@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta charset=UTF-8>
+    </head>
+
+    <body>
+        
+        <form>
+            <input type="text" id="userInput" onkeyup="sendRequest()"> 
+        </form>
+        
+        <div id="ajaxResponse"></div>
+        
+        <p>CREATE TABLE Cosas(<br>
+		idCosas INTEGER NOT NULL AUTO_INCREMENT ,<br>
+		nombre VARCHAR( 32 ) ,<br>
+		PRIMARY KEY ( idCosas )<br>
+		)<br>
+
+		INSERT INTO Cosas( nombre ) <br>
+		VALUES <br>(
+		"Java Server Pages"
+		), <br>(
+		"Web services"
+		), <br>(
+		"Data bases"
+		), <br>(
+		"JavaScript"
+		), <br>(
+		"Networking"
+		), <br>(
+		"PHP"
+		)</p>
+		<hr>
+		<ul>
+			<li>¿Qué importancia tiene AJAX en el desarrollo de RIA's (Rich Internet Applications?)
+			<br>	</li>
+		</ul>
+
+        <script type="text/javascript" src="js/ajax.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      </body>
+</html>
