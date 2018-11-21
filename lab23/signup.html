@@ -1,0 +1,31 @@
+  <?php if (isset($error)):?>
+    <div class="red-text">Error: <?=$error?></div>
+  <?php endif; ?>
+
+  <main>
+    <div class="row">
+      <form class="col s12" action="signup.php" method="POST">
+        <div class="row">
+          
+          <div class="input-field col s12">
+            <input placeholder="Nombre" id="nombre" name="nombre" type="text" class="validate">
+            <label class="active" for="first_name2">Name</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input placeholder="Usuario" id="usuario" name="usuario" type="text" class="validate">
+            <label class="active" for="first_name2">Usuario</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input placeholder="Contraseña" id="password" name="password" type="text" class="validate">
+            <label class="active" for="first_name2">Contraseña</label>
+          </div>
+
+          <button class="btn waves-effect waves-light" type="submit" name="action">Send
+            <i class="material-icons right">send</i>
+          </button> 
+        </div>
+      </form>
+    </div>
+  </main>
