@@ -1,0 +1,110 @@
+CREATE TABLE CLIENTES_BANCA
+(
+NoCuenta varchar(5) NOT NULL,
+Nombre  varchar (30),
+Saldo numeric (10,2),
+PRIMARY KEY (NoCuenta)
+)
+
+CREATE TABLE TIPOS_MOVIMIENTO
+(
+ClaveM varchar(2) NOT NULL,
+Descripcion varchar(30),
+PRIMARY KEY (ClaveM)
+)
+
+
+CREATE TABLE MOVIMIENTOS
+(
+NoCuenta varchar(5),
+ClaveM varchar(2),
+Fecha DATETIME,
+Monto numeric(10,2),
+FOREIGN KEY (NoCuenta) REFERENCES CLIENTES_BANCA(NoCuenta),
+FOREIGN KEY (ClaveM) REFERENCES TIPOS_MOVIMIENTO(ClaveM),
+
+)
+
+BEGIN TRANSACTION PRUEBA1 
+INSERT INTO CLIENTES_BANCA VALUES('001', 'Manuel Rios Maldonado', 9000); 
+INSERT INTO CLIENTES_BANCA VALUES('002', 'Pablo Perez Ortiz', 5000); 
+INSERT INTO CLIENTES_BANCA VALUES('003', 'Luis Flores Alvarado', 8000); 
+COMMIT TRANSACTION PRUEBA1 
+
+¿Que pasa cuando deseas realizar esta consulta? 
+
+-Me muestra el contenido de la tabla CLIENTES_BANCA
+
+¿Qué pasa cuando deseas realizar esta consulta? 
+
+-Solo la pude realizar desde la ventana desde donde empecé la transacción
+
+SELECT * FROM CLIENTES_BANCA where NoCuenta='001' 
+
+Explica por qué ocurre dicho evento. 
+
+-Por que en esta sesión la transacción sigue abierta
+
+ROLLBACK TRANSACTION PRUEBA2 
+
+SELECT * FROM CLIENTES_BANCA 
+
+¿Qué ocurrió y por qué? 
+
+-No quiso ejecutar la query
+
+BEGIN TRANSACTION PRUEBA3 
+INSERT INTO TIPOS_MOVIMIENTO VALUES('A','Retiro Cajero Automatico'); 
+INSERT INTO TIPOS_MOVIMIENTO VALUES('B','Deposito Ventanilla'); 
+COMMIT TRANSACTION PRUEBA3 
+
+¿Para qué sirve el comando @@ERROR revisa la ayuda en línea? 
+
+-Regresa el numero de error para la última transacción ejecutada
+
+¿Qué hace la transacción? 
+
+-Inserta valores y si hay un error cancela oda la transacción 
+
+¿Hubo alguna modificación en la tabla? Explica qué pasó y por qué. 
+
+-No, se mantuvo igual que el principio porque se detecto un error al insertar por lo que se regreso al último estado guardado
+
+Una transacción que registre el retiro de una cajero. nombre del store procedure REGISTRAR_RETIRO_CAJERO 
+que recibe 2 parámetros en NoCuenta y el monto a retirar. 
+
+IF EXISTS (SELECT name FROM sysobjects
+                       WHERE name = 'REGISTRAR_RETIRO_CAJERO ' AND type = 'P')
+                DROP PROCEDURE REGISTRAR_RETIRO_CAJERO 
+            GO
+
+            CREATE PROCEDURE REGISTRAR_RETIRO_CAJERO 
+                @NoCuenta varchar(5),
+                @monto integer
+            AS
+		UPDATE CLIENTES_BANCA
+		SET Saldo = Saldo-@monto
+		WHERE NoCuenta=@Nocuenta;
+
+		INSERT INTO MOVIMIENTOS VALUES(@NoCuenta,'A',GETDATE(),@monto); 
+            GO
+
+
+Una transacción que registre el deposito en ventanilla. Nombre del store procedure 
+REGISTRAR_DEPOSITO_VENTANILLA que recibe 2 parámetros en NoCuenta y el monto a depositar. 
+
+IF EXISTS (SELECT name FROM sysobjects
+                       WHERE name = 'REGISTRAR_DEPOSITO_VENTANILLA' AND type = 'P')
+                DROP PROCEDURE REGISTRAR_DEPOSITO_VENTANILLA  
+            GO
+
+            CREATE PROCEDURE REGISTRAR_DEPOSITO_VENTANILLA  
+                @NoCuenta varchar(5),
+                @monto integer
+            AS
+		UPDATE CLIENTES_BANCA
+		SET Saldo = Saldo+@monto
+		WHERE NoCuenta=@Nocuenta;
+
+		INSERT INTO MOVIMIENTOS VALUES(@NoCuenta,'B',GETDATE(),@monto); 
+            GO
